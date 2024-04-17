@@ -186,17 +186,23 @@ img {
     color: var(--first-color);
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (max-width: 768px) {
     .nav__menu {
         position: fixed;
         bottom: -100%;
         left: 0;
         width: 100%;
+        height: calc(100vh - var(--header-height)); /* Ajustamos la altura del menú */
         background-color: var(--body-color);
         padding: 2rem 1.5rem 4rem;
         box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
         border-radius: 1.5rem 1.5rem 0 0;
-        transition: 0.3s;
+        transition: bottom 0.3s ease; /* Añadimos una transición suave */
+        z-index: 1000; /* Aseguramos que esté sobre otros elementos */
+    }
+
+    .show-menu .nav__menu {
+        bottom: 0; /* Mostramos el menú al agregar la clase .show-menu */
     }
 }
 
@@ -207,7 +213,7 @@ img {
 
 .nav__link {
     display: flex;
-    felx-direction: column;
+    flex-direction: column;
     align-items: center;
     font-size: var(--small-font-size);
     color: var(--title-color);
@@ -254,7 +260,7 @@ img {
 .home__content{
     grid-template-columns: .5fr 3fr;
     padding-top: 3.5rem;
-    allign-items: center;
+    align-items: center;
 }
 
 .home__social {
