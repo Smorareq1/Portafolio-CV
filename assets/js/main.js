@@ -71,9 +71,22 @@ tabs.forEach(tab => {
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
+let swiper = new Swiper(".portfolio__container", {
+    cssMode: true,
+    loop: true,
 
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    mousewheel: true,
+    keyboard: true,
+});
 
-/*==================== TESTIMONIAL ====================*/
 
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
@@ -97,9 +110,18 @@ function scrollActive(){
 }
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/ 
-
+function scrollHeader(){
+    const nav = document.getElementById('header')
+    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
 
 /*==================== SHOW SCROLL UP ====================*/ 
+function scrollUp(){
+    const scrollUp = document.getElementById('scroll-up')
+    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
 
+window.addEventListener('scroll', scrollUp)
 
 /*==================== DARK LIGHT THEME ====================*/ 
